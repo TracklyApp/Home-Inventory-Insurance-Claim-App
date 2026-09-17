@@ -188,3 +188,37 @@ nav .mobile-profile-trigger { display: none; }
 #activation-dialog .modal-actions { flex-wrap: wrap; }
 #activation-open { min-height: 44px; }
 .inventory-switch { flex-wrap: wrap; }
+
+/* Let cards shrink to the viewport; wide inventory tables scroll inside their wrapper. */
+.shell, main, #content, .overview-grid > *, .right-column > *,
+.stats > *, .rooms > *, .page-heading > *, .recent, .panel { min-width: 0; }
+.stats { grid-template-columns: minmax(0,1.3fr) repeat(3,minmax(0,1fr)); }
+.rooms { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.table-wrap { min-width: 0; max-width: 100%; width: 100%; overflow-x: auto; }
+.stat-label { gap: 8px; }
+.stat-label span { flex-shrink: 0; }
+.stat-value, .stat small, .room-info { overflow-wrap: anywhere; }
+.room-meta { flex-wrap: wrap; gap: 4px 8px; }
+.section-heading { flex-wrap: wrap; gap: 8px 12px; }
+.legend { flex-wrap: wrap; gap: 4px 8px; }
+@media(max-width:950px) {
+  .overview-grid { grid-template-columns: minmax(0,1fr); }
+  .stats, .right-column { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:650px) {
+  .rooms { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .right-column { grid-template-columns: minmax(0,1fr); }
+  .mode-tabs, .inventory-switch, .toolbar { min-width: 0; max-width: 100%; }
+  .mode-tabs .button { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+  .claim-banner > div { min-width: 0; flex: 1 1 180px; }
+  .claim-banner button { white-space: normal; max-width: 100%; margin-left: 0; }
+}
+@media(max-width:480px) {
+  .rooms { grid-template-columns: minmax(0,1fr); }
+  .room-photo { height: 170px; }
+  .room-info { padding: 16px; }
+}
+@media(max-width:380px) {
+  .stats { grid-template-columns: minmax(0,1fr); }
+  .stat { min-height: 0; }
+}

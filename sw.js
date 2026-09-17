@@ -1,4 +1,4 @@
-const CACHE = 'trackly-shell-v10';
+const CACHE = 'trackly-shell-v12';
 const ASSETS = ['./', './index.html', './styles.css', './theme.css', './theme.js', './app.js', './activation.js', './activation-key.js', './install.js', './navigation.js', './profile.js', './attachments.js', './backup.js', './reports.js', './rooms.js', './manual.js', './manual.css', './how-to-use.html', './output/pdf/trackly-how-to-use.pdf', './vendor/jspdf.umd.min.js', './vendor/pdf-font.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
